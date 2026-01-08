@@ -95,8 +95,14 @@ class PolymarketClient:
         markets = []
         for m in data:
             try:
-                # Parse token IDs from clobTokenIds field
+                # Parse token IDs from clobTokenIds field (can be list or JSON string)
                 clob_token_ids = m.get("clobTokenIds", []) or []
+                if isinstance(clob_token_ids, str):
+                    import json
+                    try:
+                        clob_token_ids = json.loads(clob_token_ids)
+                    except:
+                        clob_token_ids = []
                 yes_token_id = clob_token_ids[0] if len(clob_token_ids) > 0 else ""
                 no_token_id = clob_token_ids[1] if len(clob_token_ids) > 1 else ""
 
@@ -202,7 +208,13 @@ class PolymarketClient:
             return None
 
         m = data[0]
-        clob_token_ids = m.get("clobTokenIds", [])
+        clob_token_ids = m.get("clobTokenIds", []) or []
+        if isinstance(clob_token_ids, str):
+            import json
+            try:
+                clob_token_ids = json.loads(clob_token_ids)
+            except:
+                clob_token_ids = []
         events = m.get("events", [])
         event_slug = events[0].get("slug", "") if events else ""
 
