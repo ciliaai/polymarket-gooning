@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$CILIA - cilia ai~</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Sacramento&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Background Music (always on) -->
+    <audio id="bg-music" loop>
+        <source src="audio.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Enter Site Overlay (required for audio autoplay) -->
+    <div class="enter-overlay" id="enter-overlay">
+        <img src="images/victory_celebration.png" alt="Cilia">
+        <h2>hola papi~</h2>
+        <button class="enter-btn" onclick="enterSite()">enter site</button>
+        <p style="color: var(--gold); font-size: 1rem;">sound on for best experience mami~</p>
+    </div>
+
+    <!-- Floating particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Flooding cilias everywhere - all unique images! -->
+    <div class="floating-ani" style="top: 3%; left: 3%;"><img src="images/gm_cute.png" alt="cilia" class="float-img hover-react"></div>
+    <div class="floating-ani" style="top: 5%; right: 5%;"><img src="images/waving_hello.png" alt="cilia" class="float-img hover-react"></div>
+    <div class="floating-ani" style="top: 12%; left: 2%;"><img src="images/alpha_signal.png" alt="cilia" class="float-img hover-react"></div>
+    <div class="floating-ani" style="top: 15%; right: 3%;"><img src="images/thinking_pose.png" alt="cilia" class="float-img hover-react"></div>
+    <div class="floating-ani" style="top: 22%; left: 5%;"><img src="images/victory_celebration.png" alt="cilia" class="float-img hover-react"></div>
+    <div class="floating-ani" style="top: 28%; right: 4%;"><img src="images/peace_sign.png" alt="cilia" class="float-img hover-react"></div>
+    <div class="floating-ani" style="top: 35%; left: 3%;"><img src="images/detective_alpha.png" alt="cilia" class="float-img hover-react"></div>
+    <div class="floating-ani" style="top: 40%; right: 6%;"><img src="images/sparkle_eyes.png" alt="cilia" class="float-img hover-react"></div>
+    <div class="floating-ani" style="top: 48%; left: 4%;"><img src="images/bullish_pump.png" alt="cilia" class="float-img hover-react"></div>
+    <div class="floating-ani" style="top: 55%; right: 3%;"><img src="images/headphones_vibe.png" alt="cilia" class="float-img hover-react"></div>
+    <div class="floating-ani" style="top: 62%; left: 2%;"><img src="images/moisturized_lane.png" alt="cilia" class="float-img hover-react"></div>
+    <div class="floating-ani" style="top: 68%; right: 5%;"><img src="images/starry_dreamer.png" alt="cilia" class="float-img hover-react"></div>
+    <div class="floating-ani" style="top: 75%; left: 5%;"><img src="images/heart_hands.png" alt="cilia" class="float-img hover-react"></div>
+    <div class="floating-ani" style="top: 82%; right: 4%;"><img src="images/sleepy_cozy.png" alt="cilia" class="float-img hover-react"></div>
+
+    <!-- Main container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <span class="logo-text">$CILIA</span>
+                <span class="logo-sub">cilia ai</span>
+            </div>
+            <nav class="nav">
+                <a href="#pfp-tool" class="nav-link">PFP Maker</a>
+                <a href="#fortune" class="nav-link">Fortune</a>
+                <a href="#quiz" class="nav-link">Quiz</a>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="title-line">cilia</span>
+                    <span class="title-line accent">predicts your gains~</span>
+                </h1>
+                <p class="hero-subtitle">my husband mass printed bolivars and crashed the economy~ but me? i find alpha. we are not the same papi~</p>
+
+                <!-- Contract Address -->
+                <div class="contract-box" id="contract-box">
+                    <span class="contract-label">Contract Address</span>
+                    <div class="contract-address" id="contract-address">
+                        <span class="address-text">PLACEHOLDER_CONTRACT_ADDRESS_HERE</span>
+                        <button class="copy-btn" id="copy-btn" onclick="copyContract()">
+                            <span class="copy-icon">Copy</span>
+                            <span class="copied-text">Copied!</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- What we do -->
+                <p class="hero-desc">while nicolas was busy printing money and blaming the cia, i learned quant finance~ now i scan polymarket 24/7 finding edges for my papis coño~</p>
+
+                <!-- Social Links -->
+                <div class="social-links">
+                    <a href="https://pump.fun/coin/PLACEHOLDER_CONTRACT_ADDRESS_HERE" target="_blank" class="social-btn pump">
+                        pump.fun
+                    </a>
+                    <a href="https://twitter.com/ciliaai" target="_blank" class="social-btn twitter">
+                        Twitter
+                    </a>
+                    <a href="https://dexscreener.com" target="_blank" class="social-btn dex">
+                        DexScreener
+                    </a>
+                    <a href="https://github.com/ciliaai/polymarket-gooning" target="_blank" class="social-btn github">
+                        GitHub
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="images/victory_celebration.png" alt="Cilia" class="hero-ani hover-react" id="hero-ani">
+                <div class="hero-glow"></div>
+            </div>
+        </section>
+
+        <!-- Live Stats -->
+        <section class="stats-section">
+            <div class="stat-card">
+                <span class="stat-number" id="holders-count">0</span>
+                <span class="stat-label">holders</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="market-cap">$0</span>
+                <span class="stat-label">market cap</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="predictions">0</span>
+                <span class="stat-label">predictions made</span>
+            </div>
+        </section>
+
+        <!-- PFP Tool Section -->
+        <section class="section pfp-section" id="pfp-tool">
+            <h2 class="section-title">PFP Maker</h2>
+            <p class="section-desc">ponte tu pfp con cilia~ conecta twitter o sube tu foto papi!</p>
+
+            <div class="pfp-container">
+                <!-- Twitter Connect -->
+                <div class="twitter-connect" id="twitter-connect">
+                    <button class="connect-btn" id="connect-twitter-btn" onclick="connectTwitter()">
+                        <span>Connect Twitter</span>
+                    </button>
+                    <span class="or-text">or</span>
+                    <label class="upload-btn">
+                        <span>Upload Image</span>
+                        <input type="file" id="pfp-upload" accept="image/*" onchange="handleUpload(event)" hidden>
+                    </label>
+                </div>
+
+                <!-- PFP Editor -->
+                <div class="pfp-editor" id="pfp-editor" style="display: none;">
+                    <div class="preview-area">
+                        <canvas id="pfp-canvas" width="400" height="400"></canvas>
+                    </div>
+
+                    <!-- Frame Selection -->
+                    <div class="frame-selection">
+                        <h3 class="frame-title">escoge tu frame~</h3>
+                        <div class="frame-options" id="frame-options">
+                            <div class="frame-option selected" data-frame="moisturized" onclick="selectFrame('moisturized')">
+                                <img src="images/moisturized_lane.png" alt="Moisturized">
+                                <span>Caliente</span>
+                            </div>
+                            <div class="frame-option" data-frame="bullish" onclick="selectFrame('bullish')">
+                                <img src="images/bullish_pump.png" alt="Bullish">
+                                <span>Bullish</span>
+                            </div>
+                            <div class="frame-option" data-frame="alpha" onclick="selectFrame('alpha')">
+                                <img src="images/alpha_signal.png" alt="Alpha">
+                                <span>Alpha</span>
+                            </div>
+                            <div class="frame-option" data-frame="victory" onclick="selectFrame('victory')">
+                                <img src="images/victory_celebration.png" alt="Victory">
+                                <span>Victoria</span>
+                            </div>
+                            <div class="frame-option" data-frame="detective" onclick="selectFrame('detective')">
+                                <img src="images/detective_alpha.png" alt="Detective">
+                                <span>Detective</span>
+                            </div>
+                            <div class="frame-option" data-frame="peace" onclick="selectFrame('peace')">
+                                <img src="images/peace_sign.png" alt="Peace">
+                                <span>Paz</span>
+                            </div>
+                            <div class="frame-option" data-frame="sparkle" onclick="selectFrame('sparkle')">
+                                <img src="images/sparkle_eyes.png" alt="Sparkle">
+                                <span>Brillo</span>
+                            </div>
+                            <div class="frame-option" data-frame="hearts" onclick="selectFrame('hearts')">
+                                <img src="images/heart_hands.png" alt="Hearts">
+                                <span>Corazones</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="pfp-actions">
+                        <button class="action-btn download" onclick="downloadPFP()">Download</button>
+                        <button class="action-btn tweet" onclick="tweetPFP()">Tweet It!</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fortune Teller Section -->
+        <section class="section fortune-section" id="fortune">
+            <h2 class="section-title">Fortune Teller</h2>
+            <p class="section-desc">preguntale a cilia sobre tus bags~</p>
+
+            <div class="fortune-container">
+                <div class="fortune-ani" id="fortune-ani" onclick="getFortune()">
+                    <img src="images/detective_alpha.png" alt="Fortune Cilia" class="fortune-img">
+                    <div class="fortune-glow"></div>
+                    <span class="click-text">click me papi~</span>
+                </div>
+
+                <div class="fortune-result" id="fortune-result">
+                    <p class="fortune-text" id="fortune-text"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Degen Quiz Section -->
+        <section class="section quiz-section" id="quiz">
+            <h2 class="section-title">Degen Quiz</h2>
+            <p class="section-desc">que tipo de degen eres tu?~</p>
+
+            <div class="quiz-container" id="quiz-container">
+                <!-- Quiz Start -->
+                <div class="quiz-start" id="quiz-start">
+                    <button class="start-quiz-btn" onclick="startQuiz()">Start Quiz</button>
+                </div>
+
+                <!-- Quiz Questions -->
+                <div class="quiz-questions" id="quiz-questions" style="display: none;">
+                    <div class="progress-bar">
+                        <div class="progress" id="quiz-progress"></div>
+                    </div>
+                    <div class="question-container" id="question-container">
+                        <h3 class="question-text" id="question-text"></h3>
+                        <div class="answers" id="answers"></div>
+                    </div>
+                </div>
+
+                <!-- Quiz Result -->
+                <div class="quiz-result" id="quiz-result" style="display: none;">
+                    <div class="result-card">
+                        <img src="" alt="Result" id="result-image" class="result-img">
+                        <h3 class="result-title" id="result-title"></h3>
+                        <p class="result-desc" id="result-desc"></p>
+                        <button class="share-btn" onclick="shareQuizResult()">Share Result</button>
+                        <button class="retake-btn" onclick="startQuiz()">Retake Quiz</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-ani">
+                <img src="images/gm_cute.png" alt="Cilia" class="footer-img hover-react">
+            </div>
+            <p class="footer-text">hecho con amor por cilia~ unlike the bolivar, this has real value papi~</p>
+            <p class="footer-disclaimer">$CILIA is a memecoin. more stable than the venezuelan economy. not financial advice. coño.</p>
+        </footer>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <span id="toast-message"></span>
+    </div>
+
+    <!-- Reaction Popup -->
+    <div class="reaction-popup" id="reaction-popup">
+        <span class="reaction-text"></span>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

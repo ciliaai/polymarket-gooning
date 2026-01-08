@@ -1,0 +1,68 @@
+# Cilia AI Configuration
+# Default settings for the signal detection engine
+
+# Scanning Configuration
+scanner:
+  interval_seconds: 180
+  markets_per_scan: 50
+  orderbook_depth_levels: 5
+
+# Detection Thresholds
+detection:
+  # Arbitrage detection
+  arbitrage:
+    enabled: true
+    min_gap_cents: 2.0
+    threshold: 0.98
+
+  # Momentum detection
+  momentum:
+    enabled: true
+    ewma_alpha: 0.3
+    threshold: 0.05
+    min_history: 3
+
+  # Order flow analysis
+  orderflow:
+    enabled: true
+    buy_pressure_threshold: 3.0
+    sell_pressure_threshold: 0.33
+    depth_levels: 5
+
+  # Volume anomaly detection
+  volume:
+    enabled: true
+    z_score_threshold: 2.5
+    min_history: 10
+
+# Risk Assessment
+risk:
+  weights:
+    liquidity: 0.30
+    time_decay: 0.25
+    volatility: 0.25
+    spread: 0.20
+  tiers:
+    low_threshold: 0.33
+    high_threshold: 0.66
+
+# Posting Configuration
+posting:
+  mode: hourly_digest  # individual or hourly_digest
+  digest_interval_hours: 1.0
+  max_signals_per_digest: 5
+  market_cooldown_hours: 4
+  daily_limit: 17  # Twitter free tier limit
+
+# Image Generation
+images:
+  enabled: true
+  model: grok-2-image
+  style: venezuelan_beauty
+
+# Filters
+filters:
+  min_volume_24h_usd: 1000
+  min_liquidity_usd: 500
+  min_confidence: medium  # low, medium, high
+  min_magnitude: 5.0
